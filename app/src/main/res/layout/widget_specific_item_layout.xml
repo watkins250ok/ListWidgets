@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/widget_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/widget_bg_purple"
+    android:padding="12dp">
+
+    <!-- Top Navigation / Header Bar -->
+    <LinearLayout
+        android:id="@+id/widget_specific_top_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingBottom="6dp">
+
+        <TextView
+            android:id="@+id/widget_item_header_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="📌 Featured Item"
+            android:textColor="#FFFFFF"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:maxLines="1"
+            android:ellipsize="end" />
+
+        <ImageView
+            android:id="@+id/widget_item_btn_config"
+            android:layout_width="26dp"
+            android:layout_height="26dp"
+            android:src="@drawable/ic_widget_settings"
+            android:background="@drawable/widget_tag_badge_bg"
+            android:padding="4dp"
+            android:contentDescription="Widget Settings" />
+    </LinearLayout>
+
+    <!-- Scrollable ListView containing full item details -->
+    <ListView
+        android:id="@+id/widget_specific_item_list"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="4dp"
+        android:scrollbars="vertical" />
+
+    <!-- Empty State -->
+    <TextView
+        android:id="@+id/widget_specific_item_empty"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="No item selected.\nTap ⚙️ above to select a task or note."
+        android:textColor="#B3FFFFFF"
+        android:textSize="13sp"
+        android:visibility="gone" />
+
+</LinearLayout>

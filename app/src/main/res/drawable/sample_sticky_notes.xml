@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="400dp"
+    android:height="240dp"
+    android:viewportWidth="400"
+    android:viewportHeight="240">
+    <!-- Wall background -->
+    <path
+        android:pathData="M0,0h400v240h-400z"
+        android:fillColor="#E2E8F0" />
+    
+    <!-- 3x3 yellow sticky notes grid matching screenshot -->
+    <!-- Row 1 -->
+    <path
+        android:pathData="M70,30h60v50h-60z"
+        android:fillColor="#FEF08A" />
+    <path
+        android:pathData="M170,30h60v50h-60z"
+        android:fillColor="#FDE047" />
+    <path
+        android:pathData="M270,30h60v50h-60z"
+        android:fillColor="#FEF08A" />
+
+    <!-- Row 2 -->
+    <path
+        android:pathData="M70,95h60v50h-60z"
+        android:fillColor="#FDE047" />
+    <path
+        android:pathData="M170,95h60v50h-60z"
+        android:fillColor="#FEF08A" />
+    <path
+        android:pathData="M270,95h60v50h-60z"
+        android:fillColor="#FDE047" />
+
+    <!-- Row 3 -->
+    <path
+        android:pathData="M70,160h60v50h-60z"
+        android:fillColor="#FEF08A" />
+    <path
+        android:pathData="M170,160h60v50h-60z"
+        android:fillColor="#FDE047" />
+    <!-- Slightly angled sticky note held in hand -->
+    <path
+        android:pathData="M275,165h60v50h-60z"
+        android:fillColor="#FACC15" />
+</vector>

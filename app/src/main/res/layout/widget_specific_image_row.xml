@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/widget_specific_image_container"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/widget_item_card_bg"
+    android:padding="4dp"
+    android:layout_marginBottom="4dp">
+
+    <ImageView
+        android:id="@+id/widget_specific_image_view"
+        android:layout_width="match_parent"
+        android:layout_height="140dp"
+        android:scaleType="centerCrop" />
+</LinearLayout>

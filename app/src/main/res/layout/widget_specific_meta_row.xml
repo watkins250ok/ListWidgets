@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/widget_specific_meta_container"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/widget_item_card_bg"
+    android:padding="10dp"
+    android:layout_marginBottom="4dp">
+
+    <!-- Due Date and Created Date -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginBottom="4dp">
+
+        <TextView
+            android:id="@+id/widget_specific_meta_due"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="📅 Due: Tomorrow"
+            android:textColor="#F472B6"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            android:layout_marginEnd="10dp" />
+
+        <TextView
+            android:id="@+id/widget_specific_meta_created"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Created Sep 1"
+            android:textColor="#94A3B8"
+            android:textSize="11sp" />
+    </LinearLayout>
+
+    <!-- Tags Row -->
+    <TextView
+        android:id="@+id/widget_specific_meta_tags"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="#tag1 #tag2"
+        android:textColor="#67E8F9"
+        android:textSize="11sp"
+        android:textStyle="bold" />
+</LinearLayout>

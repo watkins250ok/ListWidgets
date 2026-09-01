@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.MyApplication">
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:windowSoftInputMode="adjustResize"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.MyApplication">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".widget.WidgetActionActivity"
+            android:exported="false"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+        <activity
+            android:name=".widget.WidgetConfigActivity"
+            android:exported="true"
+            android:label="Configure Widget"
+            android:theme="@style/Theme.MyApplication">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE" />
+            </intent-filter>
+        </activity>
+
+        <!-- 1. All Lists Widget -->
+        <receiver
+            android:name=".widget.AllListsWidgetProvider"
+            android:exported="true"
+            android:label="@string/widget_all_lists_label">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+                <action android:name="com.example.widget.ACTION_TOGGLE_TASK" />
+                <action android:name="com.example.widget.ACTION_DATA_CHANGED" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_all_lists_info" />
+        </receiver>
+
+        <!-- 2. All Items Widget -->
+        <receiver
+            android:name=".widget.AllItemsWidgetProvider"
+            android:exported="true"
+            android:label="@string/widget_all_items_label">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+                <action android:name="com.example.widget.ACTION_TOGGLE_TASK" />
+                <action android:name="com.example.widget.ACTION_DATA_CHANGED" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_all_items_info" />
+        </receiver>
+
+        <!-- 3. Specific List Widget -->
+        <receiver
+            android:name=".widget.SpecificListWidgetProvider"
+            android:exported="true"
+            android:label="@string/widget_specific_list_label">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+                <action android:name="com.example.widget.ACTION_TOGGLE_TASK" />
+                <action android:name="com.example.widget.ACTION_DATA_CHANGED" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_specific_list_info" />
+        </receiver>
+
+        <!-- 4. Specific Item Widget -->
+        <receiver
+            android:name=".widget.SpecificItemWidgetProvider"
+            android:exported="true"
+            android:label="@string/widget_specific_item_label">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+                <action android:name="com.example.widget.ACTION_TOGGLE_TASK" />
+                <action android:name="com.example.widget.ACTION_DATA_CHANGED" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_specific_item_info" />
+        </receiver>
+
+        <!-- Legacy App Widget Provider for Backward Compatibility -->
+        <receiver
+            android:name=".widget.ListAppWidgetProvider"
+            android:exported="false"
+            android:label="List &amp; Tasks Widget">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+                <action android:name="com.example.widget.ACTION_TOGGLE_TASK" />
+                <action android:name="com.example.widget.ACTION_DATA_CHANGED" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/list_appwidget_info" />
+        </receiver>
+
+        <!-- RemoteViews Services for Widget ListViews -->
+        <service
+            android:name=".widget.ListWidgetRemoteViewsService"
+            android:permission="android.permission.BIND_REMOTEVIEWS"
+            android:exported="false" />
+
+        <service
+            android:name=".widget.SpecificItemRemoteViewsService"
+            android:permission="android.permission.BIND_REMOTEVIEWS"
+            android:exported="false" />
+    </application>
+
+</manifest>

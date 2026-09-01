@@ -1,0 +1,6 @@
+{
+  "name": "ListWidget",
+  "description": "Lists & Tasks app with interactive home screen widgets, rich text notes, due dates, sub-tasks, and gallery.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

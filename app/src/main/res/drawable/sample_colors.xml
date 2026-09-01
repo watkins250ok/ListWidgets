@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="400dp"
+    android:height="240dp"
+    android:viewportWidth="400"
+    android:viewportHeight="240">
+    <path
+        android:pathData="M0,0h400v240h-400z"
+        android:fillColor="#0F172A" />
+    <!-- Gradient palette circles -->
+    <path
+        android:pathData="M80,120 A40,40 0 1,0 80,120.1 Z"
+        android:fillColor="#7C3AED" />
+    <path
+        android:pathData="M160,120 A40,40 0 1,0 160,120.1 Z"
+        android:fillColor="#EC4899" />
+    <path
+        android:pathData="M240,120 A40,40 0 1,0 240,120.1 Z"
+        android:fillColor="#06B6D4" />
+    <path
+        android:pathData="M320,120 A40,40 0 1,0 320,120.1 Z"
+        android:fillColor="#10B981" />
+</vector>

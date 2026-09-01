@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- Purple circle background inside safe area -->
+    <path
+        android:pathData="M54,21 A33,33 0 1,0 54,87 A33,33 0 1,0 54,21 Z"
+        android:fillColor="#8B5CF6" />
+    <path
+        android:pathData="M54,23 A31,31 0 1,0 54,85 A31,31 0 1,0 54,23 Z"
+        android:fillColor="#7C3AED" />
+
+    <!-- Row 1 (y ≈ 38): Checkbox + Equal-sized solid line -->
+    <!-- Checkbox square -->
+    <path
+        android:pathData="M32,34 L42,34 A2,2 0 0,1 44,36 L44,42 A2,2 0 0,1 42,44 L32,44 A2,2 0 0,1 30,42 L30,36 A2,2 0 0,1 32,34 Z"
+        android:fillColor="#10B981" />
+    <!-- Checkmark inside square -->
+    <path
+        android:pathData="M33.5,39 L36,41.5 L40.5,36.5"
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="1.8"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round" />
+    <!-- Row 1 Solid Line -->
+    <path
+        android:pathData="M49,39 L78,39"
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="3.5"
+        android:strokeLineCap="round" />
+
+    <!-- Row 2 (y ≈ 54): Lightbulb + Equal-sized solid line -->
+    <!-- Lightbulb bulb -->
+    <path
+        android:pathData="M37,47.5 A5,5 0 0,0 33,52 C33,54 34.5,55.5 35.5,57 L38.5,57 C39.5,55.5 41,54 41,52 A5,5 0 0,0 37,47.5 Z"
+        android:fillColor="#FBBF24" />
+    <!-- Lightbulb base -->
+    <path
+        android:pathData="M35.5,58 L38.5,58"
+        android:strokeColor="#F59E0B"
+        android:strokeWidth="1.5"
+        android:strokeLineCap="round" />
+    <path
+        android:pathData="M36,60 L38,60"
+        android:strokeColor="#D97706"
+        android:strokeWidth="1.2"
+        android:strokeLineCap="round" />
+    <!-- Row 2 Solid Line (same length M49 to M78) -->
+    <path
+        android:pathData="M49,54 L78,54"
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="3.5"
+        android:strokeLineCap="round" />
+
+    <!-- Row 3 (y ≈ 69): Bullet point + Equal-sized solid line -->
+    <!-- Solid Bullet point circle -->
+    <path
+        android:pathData="M37,64.5 A4.5,4.5 0 1,0 37,73.5 A4.5,4.5 0 1,0 37,64.5 Z"
+        android:fillColor="#38BDF8" />
+    <!-- Row 3 Solid Line (same length M49 to M78) -->
+    <path
+        android:pathData="M49,69 L78,69"
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="3.5"
+        android:strokeLineCap="round" />
+</vector>

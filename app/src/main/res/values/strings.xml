@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">ListWidget</string>
+    <string name="widget_all_lists_label">All Lists Widget</string>
+    <string name="widget_all_lists_desc">Displays all created lists with icons, dates, and item counts</string>
+    <string name="widget_all_items_label">All Items Widget</string>
+    <string name="widget_all_items_desc">Displays all tasks and notes across lists with category &amp; tag filters</string>
+    <string name="widget_specific_list_label">Specific List Widget</string>
+    <string name="widget_specific_list_desc">Displays items from a selected list with an interactive menu</string>
+    <string name="widget_specific_item_label">Specific Item Widget</string>
+    <string name="widget_specific_item_desc">Displays full details, metadata, and optional photo of a selected item</string>
+</resources>
