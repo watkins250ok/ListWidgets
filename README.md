@@ -4,10 +4,10 @@ This is an Android list app that allows you to create multiple customizable list
 
 I created this app because while there are many existing list/note apps for Android, none of them did everything that I wanted it to. So I gave myself a crash course in vibe coding and Android Studio to make my own. This app will always be free to use, and I don't ever plan on putting in ads or any in-app purchases. I also don't know how long I'll be actively maintaining this, which is part of the reason I'm just going ahead and making everything public, so if you want to take it and make it your own, have at it! I do welcome comments, feedback, suggestions, etc, because I'm very green and just starting out learning how to code for Android. I made this because I needed to fill a specific need, not because I wanted to learn how to program mobile apps (though the process so far has been fun, so I will probably see what else I can make!)
 
-#Features:
+#Features:#
 
 
-##Lists
+##Lists##
 
 Create multiple lists
 <img width="1080" height="2340" alt="app_listpage" src="https://github.com/user-attachments/assets/4c1fad80-572c-4b2c-b00e-fb82aef706d1" />
