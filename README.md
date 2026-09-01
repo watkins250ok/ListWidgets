@@ -100,3 +100,6 @@ Samples of what the widgets look like on the homescreen. They are size adjustabl
 <img width="270" height="585" alt="app_examplewidgets2" src="https://github.com/user-attachments/assets/25e3987a-1f53-4b8e-aa15-c67797d740df" />
 
 <img width="270" height="585" alt="app_examplewidgets" src="https://github.com/user-attachments/assets/f31063eb-ae25-4f9e-87b9-3c1c10ad22b7" />
+<br><br><br>
+
+<a href="https://ko-fi.com/amywatkins"><img width="16" height="16" alt="ko-fi-logotype-27349_16" src="https://github.com/user-attachments/assets/ab4505a2-4993-40d7-81b2-604f4228889f" /> This app will always be ad-free and free-to-use, but you can support me on Ko-fi!</a>
