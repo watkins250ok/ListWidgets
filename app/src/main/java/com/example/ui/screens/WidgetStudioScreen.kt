@@ -1546,41 +1546,43 @@ fun WidgetStudioScreen(
                 modifier = Modifier
                     .fillMaxWidth()
                     .testTag("settings_categories_card"),
-                shape = RoundedCornerShape(20.dp),
+                shape = RoundedCornerShape(12.dp),
                 colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
                 border = androidx.compose.foundation.BorderStroke(1.dp, MaterialTheme.colorScheme.outline.copy(alpha = 0.2f))
             ) {
-                Column(modifier = Modifier.padding(16.dp)) {
-                    Row(
-                        modifier = Modifier.fillMaxWidth(),
-                        verticalAlignment = Alignment.CenterVertically,
-                        horizontalArrangement = Arrangement.SpaceBetween
-                    ) {
-                        Column {
-                            Text(
-                                text = "Category Management",
-                                style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.Bold)
-                            )
-                            Text(
-                                text = "Customize categories, icons & colors (${categories.size})",
-                                style = MaterialTheme.typography.bodySmall.copy(color = MaterialTheme.colorScheme.onSurfaceVariant)
-                            )
-                        }
-                        Button(
-                            onClick = {
-                                newCategoryNameInput = ""
-                                newCategoryIconInput = "tag"
-                                newCategoryColorInput = "#0284C7"
-                                showAddCategoryDialog = true
-                            },
-                            shape = RoundedCornerShape(10.dp),
-                            contentPadding = PaddingValues(horizontal = 12.dp, vertical = 6.dp)
-                        ) {
-                            Icon(Icons.Default.Add, contentDescription = null, modifier = Modifier.size(16.dp))
-                            Spacer(modifier = Modifier.width(4.dp))
-                            Text("New Category", fontSize = 12.sp)
-                        }
+                Column(modifier = Modifier.padding(16.dp)) {Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.SpaceBetween
+                ) {
+                    Column(modifier = Modifier.weight(1f)) {
+                        Text(
+                            text = "Category Management",
+                            style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.Bold)
+                        )
+                        Text(
+                            text = "Customize categories, icons & colors (${categories.size})",
+                            style = MaterialTheme.typography.bodySmall.copy(color = MaterialTheme.colorScheme.onSurfaceVariant),
+                            maxLines = 1,
+                            overflow = TextOverflow.Ellipsis
+                        )
                     }
+                    Spacer(modifier = Modifier.width(8.dp))
+                    Button(
+                        onClick = {
+                            newCategoryNameInput = ""
+                            newCategoryIconInput = "tag"
+                            newCategoryColorInput = "#0284C7"
+                            showAddCategoryDialog = true
+                        },
+                        shape = RoundedCornerShape(25.dp),
+                        contentPadding = PaddingValues(horizontal = 12.dp, vertical = 6.dp)
+                    ) {
+                        Icon(Icons.Default.Add, contentDescription = null, modifier = Modifier.size(16.dp))
+                        Spacer(modifier = Modifier.width(4.dp))
+                        Text("New Category", fontSize = 12.sp, maxLines = 1)
+                    }
+                }
 
                     Spacer(modifier = Modifier.height(14.dp))
 

@@ -101,7 +101,7 @@ fun AllListsScreen(
             modifier = Modifier
                 .fillMaxSize()
                 .testTag("all_lists_screen"),
-            contentPadding = PaddingValues(start = 16.dp, end = 16.dp, top = 12.dp, bottom = 96.dp),
+            contentPadding = PaddingValues(start = 16.dp, end = 16.dp, top = 4.dp, bottom = 96.dp),
             verticalArrangement = Arrangement.spacedBy(14.dp)
         ) {
             // Search Bar

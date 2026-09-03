@@ -10,6 +10,7 @@ import com.example.data.model.ColorPalettePreset
 import com.example.data.model.ListEntity
 import com.example.data.model.ListItemEntity
 import com.example.data.model.PriorityOption
+import com.example.data.model.SubTask
 import com.example.data.model.WidgetStyleConfig
 import com.example.data.model.WidgetType
 import com.example.widget.ListAppWidgetProvider
@@ -341,6 +342,26 @@ class ListRepository(
         }
         checkAutoDelete(updated)
         triggerWidgetUpdate()
+    }
+
+    suspend fun toggleSubTaskChecked(itemId: Long, subtaskIndex: Int) = withContext(Dispatchers.IO) {
+        val item = itemDao.getItemById(itemId) ?: return@withContext
+        val subtasks = SubTask.fromJson(item.subtasksJson).toMutableList()
+        if (subtaskIndex in subtasks.indices) {
+            val st = subtasks[subtaskIndex]
+            subtasks[subtaskIndex] = st.copy(isCompleted = !st.isCompleted)
+            val now = System.currentTimeMillis()
+            val updated = item.copy(
+                subtasksJson = SubTask.toJson(subtasks),
+                updatedAt = now
+            )
+            itemDao.updateItem(updated)
+            val list = listDao.getListById(item.listId)
+            if (list != null) {
+                listDao.updateList(list.copy(updatedAt = now))
+            }
+            triggerWidgetUpdate()
+        }
     }
 
     suspend fun deleteItem(item: ListItemEntity) = withContext(Dispatchers.IO) {

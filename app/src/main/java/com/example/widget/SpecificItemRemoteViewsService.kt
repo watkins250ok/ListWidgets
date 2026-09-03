@@ -141,6 +141,12 @@ class SpecificItemRemoteViewsFactory(
                         R.id.widget_header_checkbox,
                         if (row.item.isChecked) R.drawable.ic_widget_checkbox_checked else R.drawable.ic_widget_checkbox_unchecked
                     )
+                    val checkFillInIntent = Intent().apply {
+                        putExtra(ListAppWidgetProvider.EXTRA_TOGGLE_CHECK, true)
+                        putExtra(ListAppWidgetProvider.EXTRA_ITEM_ID, row.item.id)
+                        putExtra(ListAppWidgetProvider.EXTRA_IS_CHECKED, row.item.isChecked)
+                    }
+                    views.setOnClickFillInIntent(R.id.widget_header_checkbox, checkFillInIntent)
                 } else {
                     views.setImageViewResource(R.id.widget_header_checkbox, R.drawable.ic_widget_bullet_dot)
                 }
@@ -181,6 +187,14 @@ class SpecificItemRemoteViewsFactory(
                 } else {
                     views.setTextColor(R.id.widget_specific_subtask_title, Color.parseColor("#E2E8F0"))
                 }
+
+                val subtaskFillInIntent = Intent().apply {
+                    putExtra(ListAppWidgetProvider.EXTRA_TOGGLE_SUBTASK, true)
+                    putExtra(ListAppWidgetProvider.EXTRA_ITEM_ID, item.id)
+                    putExtra(ListAppWidgetProvider.EXTRA_SUBTASK_INDEX, row.index)
+                }
+                views.setOnClickFillInIntent(R.id.widget_specific_subtask_check, subtaskFillInIntent)
+
                 views.setOnClickFillInIntent(R.id.widget_specific_subtask_container, fillInIntent)
                 views
             }

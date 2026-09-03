@@ -169,6 +169,12 @@ class ListWidgetRemoteViewsFactory(
                 views.setImageViewResource(R.id.widget_item_check_icon, R.drawable.ic_widget_checkbox_unchecked)
                 views.setTextColor(R.id.widget_item_title, Color.parseColor("#FFFFFF"))
             }
+            val checkFillInIntent = Intent().apply {
+                putExtra(ListAppWidgetProvider.EXTRA_TOGGLE_CHECK, true)
+                putExtra(ListAppWidgetProvider.EXTRA_ITEM_ID, item.id)
+                putExtra(ListAppWidgetProvider.EXTRA_IS_CHECKED, item.isChecked)
+            }
+            views.setOnClickFillInIntent(R.id.widget_item_check_icon, checkFillInIntent)
         } else {
             views.setImageViewResource(R.id.widget_item_check_icon, R.drawable.ic_widget_bullet_dot)
             views.setTextColor(R.id.widget_item_title, Color.parseColor("#FFFFFF"))

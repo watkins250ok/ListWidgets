@@ -157,7 +157,7 @@ fun MainAppScreen(viewModel: ListAppViewModel) {
                     modifier = Modifier
                         .fillMaxWidth()
                         .background(MaterialTheme.colorScheme.background)
-                        .padding(horizontal = 20.dp, vertical = 12.dp),
+                        .padding(start = 20.dp, end = 20.dp, top = 16.dp, bottom = 4.dp),
                     horizontalArrangement = Arrangement.SpaceBetween,
                     verticalAlignment = Alignment.CenterVertically
                 ) {

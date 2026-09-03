@@ -47,6 +47,7 @@
             android:label="@string/widget_all_lists_label">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+                <action android:name="com.example.widget.ACTION_ITEM_CLICK" />
                 <action android:name="com.example.widget.ACTION_TOGGLE_TASK" />
                 <action android:name="com.example.widget.ACTION_DATA_CHANGED" />
             </intent-filter>
@@ -62,6 +63,7 @@
             android:label="@string/widget_all_items_label">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+                <action android:name="com.example.widget.ACTION_ITEM_CLICK" />
                 <action android:name="com.example.widget.ACTION_TOGGLE_TASK" />
                 <action android:name="com.example.widget.ACTION_DATA_CHANGED" />
             </intent-filter>
@@ -77,6 +79,7 @@
             android:label="@string/widget_specific_list_label">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+                <action android:name="com.example.widget.ACTION_ITEM_CLICK" />
                 <action android:name="com.example.widget.ACTION_TOGGLE_TASK" />
                 <action android:name="com.example.widget.ACTION_DATA_CHANGED" />
             </intent-filter>
@@ -92,6 +95,7 @@
             android:label="@string/widget_specific_item_label">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+                <action android:name="com.example.widget.ACTION_ITEM_CLICK" />
                 <action android:name="com.example.widget.ACTION_TOGGLE_TASK" />
                 <action android:name="com.example.widget.ACTION_DATA_CHANGED" />
             </intent-filter>
@@ -107,6 +111,7 @@
             android:label="List &amp; Tasks Widget">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+                <action android:name="com.example.widget.ACTION_ITEM_CLICK" />
                 <action android:name="com.example.widget.ACTION_TOGGLE_TASK" />
                 <action android:name="com.example.widget.ACTION_DATA_CHANGED" />
             </intent-filter>

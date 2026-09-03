@@ -44,6 +44,56 @@ open class ListAppWidgetProvider : AppWidgetProvider() {
         val action = intent.action ?: return
 
         when (action) {
+            ACTION_ITEM_CLICK -> {
+                val isToggleCheck = intent.getBooleanExtra(EXTRA_TOGGLE_CHECK, false)
+                val isToggleSubtask = intent.getBooleanExtra(EXTRA_TOGGLE_SUBTASK, false)
+
+                if (isToggleCheck) {
+                    val itemId = intent.getLongExtra(EXTRA_ITEM_ID, -1L)
+                    val isChecked = intent.getBooleanExtra(EXTRA_IS_CHECKED, false)
+                    if (itemId > 0) {
+                        val pendingResult = goAsync()
+                        CoroutineScope(Dispatchers.IO).launch {
+                            try {
+                                val repo = ListRepository(context)
+                                repo.toggleTaskChecked(itemId, !isChecked)
+                            } catch (_: Throwable) {
+                            } finally {
+                                pendingResult.finish()
+                            }
+                        }
+                    }
+                } else if (isToggleSubtask) {
+                    val itemId = intent.getLongExtra(EXTRA_ITEM_ID, -1L)
+                    val subtaskIndex = intent.getIntExtra(EXTRA_SUBTASK_INDEX, -1)
+                    if (itemId > 0 && subtaskIndex >= 0) {
+                        val pendingResult = goAsync()
+                        CoroutineScope(Dispatchers.IO).launch {
+                            try {
+                                val repo = ListRepository(context)
+                                repo.toggleSubTaskChecked(itemId, subtaskIndex)
+                            } catch (_: Throwable) {
+                            } finally {
+                                pendingResult.finish()
+                            }
+                        }
+                    }
+                } else {
+                    val openItemId = intent.getLongExtra(EXTRA_OPEN_ITEM_ID, -1L)
+                    val listId = intent.getLongExtra(EXTRA_LIST_ID, -1L)
+
+                    val targetIntent = Intent(context, MainActivity::class.java).apply {
+                        flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP
+                        if (openItemId > 0) {
+                            putExtra(EXTRA_OPEN_ITEM_ID, openItemId)
+                        }
+                        if (listId > 0) {
+                            putExtra(EXTRA_LIST_ID, listId)
+                        }
+                    }
+                    context.startActivity(targetIntent)
+                }
+            }
             ACTION_TOGGLE_TASK -> {
                 val itemId = intent.getLongExtra(EXTRA_ITEM_ID, -1L)
                 val isChecked = intent.getBooleanExtra(EXTRA_IS_CHECKED, false)
@@ -73,6 +123,7 @@ open class ListAppWidgetProvider : AppWidgetProvider() {
     }
 
     companion object {
+        const val ACTION_ITEM_CLICK = "com.example.widget.ACTION_ITEM_CLICK"
         const val ACTION_TOGGLE_TASK = "com.example.widget.ACTION_TOGGLE_TASK"
         const val ACTION_DATA_CHANGED = "com.example.widget.ACTION_DATA_CHANGED"
         const val EXTRA_ITEM_ID = "extra_item_id"
@@ -80,6 +131,9 @@ open class ListAppWidgetProvider : AppWidgetProvider() {
         const val EXTRA_LIST_ID = "extra_list_id"
         const val EXTRA_OPEN_ITEM_ID = "extra_open_item_id"
         const val EXTRA_QUICK_ADD = "extra_quick_add"
+        const val EXTRA_TOGGLE_CHECK = "extra_toggle_check"
+        const val EXTRA_TOGGLE_SUBTASK = "extra_toggle_subtask"
+        const val EXTRA_SUBTASK_INDEX = "extra_subtask_index"
 
         fun sendUpdateBroadcast(context: Context) {
             try {
@@ -191,9 +245,11 @@ open class ListAppWidgetProvider : AppWidgetProvider() {
                         views.setRemoteAdapter(R.id.widget_specific_item_list, serviceIntent)
                         views.setEmptyView(R.id.widget_specific_item_list, R.id.widget_specific_item_empty)
 
-                        // PendingIntent template for item clicks (opens popup in app)
-                        val clickIntentTemplate = Intent(context, WidgetActionActivity::class.java)
-                        val clickPendingIntent = PendingIntent.getActivity(
+                        // PendingIntent template for item clicks (Broadcast)
+                        val clickIntentTemplate = Intent(context, ListAppWidgetProvider::class.java).apply {
+                            action = ACTION_ITEM_CLICK
+                        }
+                        val clickPendingIntent = PendingIntent.getBroadcast(
                             context,
                             appWidgetId * 100 + 4,
                             clickIntentTemplate,
@@ -291,9 +347,11 @@ open class ListAppWidgetProvider : AppWidgetProvider() {
                     views.setRemoteAdapter(R.id.widget_list_view, serviceIntent)
                     views.setEmptyView(R.id.widget_list_view, R.id.widget_empty_view)
 
-                    // PendingIntent template for item clicks
-                    val clickIntentTemplate = Intent(context, WidgetActionActivity::class.java)
-                    val clickPendingIntent = PendingIntent.getActivity(
+                    // PendingIntent template for item clicks (Broadcast)
+                    val clickIntentTemplate = Intent(context, ListAppWidgetProvider::class.java).apply {
+                        action = ACTION_ITEM_CLICK
+                    }
+                    val clickPendingIntent = PendingIntent.getBroadcast(
                         context,
                         appWidgetId * 100 + 3,
                         clickIntentTemplate,
