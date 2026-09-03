@@ -164,46 +164,14 @@ fun MainAppScreen(viewModel: ListAppViewModel) {
                     Column {
                         Text(
                             text = when (currentTab) {
-                                AppNavTab.ALL_LISTS -> "MANAGER"
-                                AppNavTab.ALL_ITEMS -> "WORKSPACE"
-                                AppNavTab.GALLERY -> "MEDIA"
-                                AppNavTab.SETTINGS -> "PREFERENCES"
-                            },
-                            style = MaterialTheme.typography.labelSmall.copy(
-                                fontWeight = FontWeight.Bold,
-                                color = MaterialTheme.colorScheme.primary,
-                                letterSpacing = 1.5.sp,
-                                fontSize = 11.sp
-                            )
-                        )
-                        Text(
-                            text = when (currentTab) {
-                                AppNavTab.ALL_LISTS -> "Listly Pro"
-                                AppNavTab.ALL_ITEMS -> "All Items"
-                                AppNavTab.GALLERY -> "Visual Gallery"
+                                AppNavTab.ALL_LISTS -> "Lists"
+                                AppNavTab.ALL_ITEMS -> "Items"
+                                AppNavTab.GALLERY -> "Gallery"
                                 AppNavTab.SETTINGS -> "Settings"
                             },
                             style = MaterialTheme.typography.headlineSmall.copy(
                                 fontWeight = FontWeight.Bold,
                                 letterSpacing = (-0.5).sp
-                            )
-                        )
-                    }
-
-                    // User Badge Circle (From Design HTML)
-                    Box(
-                        modifier = Modifier
-                            .size(44.dp)
-                            .clip(CircleShape)
-                            .background(MaterialTheme.colorScheme.primaryContainer)
-                            .border(2.dp, Color.White, CircleShape),
-                        contentAlignment = Alignment.Center
-                    ) {
-                        Text(
-                            text = "JD",
-                            style = MaterialTheme.typography.titleMedium.copy(
-                                fontWeight = FontWeight.Bold,
-                                color = MaterialTheme.colorScheme.primary
                             )
                         )
                     }
